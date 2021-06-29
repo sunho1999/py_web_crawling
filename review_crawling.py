@@ -1,10 +1,11 @@
 import urllib.request
 from bs4 import BeautifulSoup
 import pandas as pd
-import matplotlib
+import matplotlib.font_manager as fm
 import matplotlib.pyplot as plt
 
-
+font_path = '/Library/Fonts/NanumGothic.ttf'
+fontprop = fm.FontProperties(fname=font_path,size = 18)
 
 
 class Review:
@@ -90,9 +91,9 @@ def movie_compare(review_lists):
         y.append(summary['Star'].mean())
         count += 1
     plt.bar(x, y)
-    plt.title('영화 별점 비교')
-    plt.xlabel('영화 번호')
-    plt.ylabel('신뢰성 별점 평균')
+    plt.title('영화 별점 비교',fontproperties = fontprop)
+    plt.xlabel('영화 번호',fontproperties = fontprop)
+    plt.ylabel('신뢰성 별점 평균',fontproperties = fontprop)
     plt.show()
 movie_compare(review_lists)
 
